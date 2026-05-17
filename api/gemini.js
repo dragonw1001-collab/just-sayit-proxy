@@ -3,7 +3,7 @@ export default async function handler(request, response) {
   const url = new URL(request.url, `https://${request.headers.host}`);
   
   // 2. 重新拼裝成 Google 官方的絕對路徑（完美對接 C# 端路由）
-  const googleUrl = `https://generativelanguage.googleapis.com${url.pathname.replace('/api/gemini', '/v1beta/models')}${url.search}`;
+  const googleUrl = `https://generativelanguage.googleapis.com${url.pathname.replace('/api/[...gemini].js', '/v1beta/models')}${url.search}`;
 
   // 3. 處理語音 JSON 數據 Payload
   let bodyContent = null;
